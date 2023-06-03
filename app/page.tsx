@@ -1,9 +1,7 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div>
-      <p>hello messageer</p>
+      <p className="text-sky-500 text-3xl">hello messageer</p>
     </div>
   );
 }
