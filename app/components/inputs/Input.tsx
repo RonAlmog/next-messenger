@@ -1,6 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import Button from "../Button";
 
 interface InputProps {
   label: string;
@@ -26,7 +27,9 @@ const Input: React.FC<InputProps> = ({
       <label
         htmlFor="id"
         className="block text-sm font-medium leading-6 text-gray-900"
-      ></label>
+      >
+        {label}
+      </label>
       <div className="mt-2">
         <input
           id={id}
