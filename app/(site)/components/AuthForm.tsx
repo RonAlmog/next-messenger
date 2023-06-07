@@ -53,7 +53,13 @@ const AuthForm = (props: Props) => {
       <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
-            <Input id="name" label="Name" register={register} errors={errors} />
+            <Input
+              id="name"
+              label="Name"
+              register={register}
+              errors={errors}
+              disabled={isLoading}
+            />
           )}
 
           <Input
@@ -61,6 +67,7 @@ const AuthForm = (props: Props) => {
             label="Email address"
             register={register}
             errors={errors}
+            disabled={isLoading}
           />
           <Input
             id="password"
@@ -68,6 +75,7 @@ const AuthForm = (props: Props) => {
             type="password"
             register={register}
             errors={errors}
+            disabled={isLoading}
           />
           <div>
             <Button type="submit" fullWidth disabled={isLoading}>
@@ -95,6 +103,16 @@ const AuthForm = (props: Props) => {
               icon={BsGoogle}
               onClick={() => socialAction("google")}
             />
+          </div>
+        </div>
+        <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
+          <div>
+            {variant === "LOGIN"
+              ? "New to Messenger?"
+              : "Already have an account?"}
+          </div>
+          <div onClick={toggleVariant} className="underline cursor-pointer">
+            {variant === "LOGIN" ? "Create an accont" : "Log In"}
           </div>
         </div>
       </div>
