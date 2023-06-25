@@ -6,6 +6,8 @@ export default withAuth({
   },
 });
 
+// list of protected routes.
+// only authenticated users can reach these paths
 export const config = {
-  matcher: ["/users/:path*"],
+  matcher: ["/users/:path*", "/conversations/:path*"],
 };
