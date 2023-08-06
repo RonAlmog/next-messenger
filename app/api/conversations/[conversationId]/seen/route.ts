@@ -6,6 +6,7 @@ interface IParams {
   conversationId?: string;
 }
 
+// this backend route is for updating the 'seen' flag.
 export async function POST(request: Request, { params }: { params: IParams }) {
   try {
     const currentUser = await getCurrentUser();
@@ -23,7 +24,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
       include: {
         messages: {
           include: {
-            seen: true,
+            seen: true, // seen is a field in coversation, array of pointers to users. this line means: bring the user records.
           },
         },
         users: true,
@@ -51,7 +52,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
       data: {
         seen: {
           connect: {
-            id: currentUser.id,
+            id: currentUser.id, // connect is adding a foreign record. the current user is being added to 'seen' list
           },
         },
       },

@@ -1,6 +1,7 @@
 import prisma from "@/app/libs/prismadb";
 import getSession from "./getSession";
 
+// server component to get the current user
 const getCurrentUser = async () => {
   try {
     const session = await getSession();
