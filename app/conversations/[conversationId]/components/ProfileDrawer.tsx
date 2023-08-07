@@ -46,6 +46,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
           enterFrom="opacity-0"
           enterTo="opacity-100"
           leave="ease-in duration-500"
+          leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-black bg-opacity-40" />
@@ -110,6 +111,19 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   {otherUser.email}
                                 </dd>
                               </div>
+                            )}
+                            {!data.isGroup && (
+                              <>
+                                <hr />
+                                <div>
+                                  <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
+                                    Joined
+                                  </dt>
+                                  <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
+                                    <time dateTime={joinDate}>{joinDate}</time>
+                                  </dd>
+                                </div>
+                              </>
                             )}
                           </dl>
                         </div>
